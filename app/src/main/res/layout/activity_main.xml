@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Userクラスにバインドする -->
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="user"
+            type="com.kj_sample.databindingsample.User" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent">
+        <!-- 時間を表示する -->
+        <TextView
+            android:id="@+id/text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"/>
+
+        <!-- プロフィール -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="プロフィール"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="名前:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        <!-- データバインディング(ユーザーの名前)  -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{user.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="年齢:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        <TextView
+            android:text="@{user.age}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="LIKE:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        <!-- データバインディング(いいねの回数) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{String.valueOf(user.likes)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+        <!-- データバインディング。(タップ時処理) -->
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{user::onClickLike}"
+            android:src="@drawable/ic_thumb_up_black_36dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.btnTxt}"
+            android:onClick="@{user::btnClick}"
+            />
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{user.loading ? View.VISIBLE : View.INVISIBLE}"
+            />
+    </LinearLayout>
+
+</layout>
