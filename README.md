@@ -66,3 +66,5 @@ binding.setUser = User("kijima",24)
 binding.textTime.setText(○○○○)
 
 ```
+
+参考サイト: https://riptutorial.com/ja/android/example/16219/model-view-presenter-mvp-%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%AE%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E4%BE%8B
